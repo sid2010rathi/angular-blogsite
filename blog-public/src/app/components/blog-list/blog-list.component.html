@@ -1,0 +1,45 @@
+<div class="section">
+    <div class="container">
+        <div *ngFor="let blog of blogs" class="row justify-content-between section section-examples">
+            <div class="col-md-6">
+                <div class="row justify-content-between align-items-center">
+                    <carousel [showIndicators]="true">
+                        <slide *ngFor="let blogImage of blog.images">
+                            <a routerLink="/blogs/{{blog._id}}">
+                               
+                                <img alt="{{ blog.name }}" class="d-block" src="{{ blogImage }}" />
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ blog.name }}</h5>
+                            </div>
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h1 class="profile-title text-left"><a routerLink="/blogs/{{blog._id}}">{{ blog.name }}</a></h1>
+                <p class="profile-description text-left">
+                    {{blog.description}}
+                </p>
+                <footer class="blockquote-footer">Author: <cite title="Source Title">{{ blog.author }}</cite></footer>
+                <div class="btn-wrapper pt-3">
+                    <a (click)="addFavourites(blog._id)" *ngIf="isLoggedIn$ | async as isLoggedIn">
+                        <button class="btn btn-simple btn-danger mr-1" *ngIf="!blog.favourites">
+                            <i class="tim-icons icon-shape-star"> </i> Add To Favourites
+                        </button>
+                    </a>
+                    <!-- <a (click)="removeFavourites(blog._id)" *ngIf="isLoggedIn$ | async as isLoggedIn">
+                        <button class="btn btn-simple btn-danger mr-1" *ngIf="blog.favourites">
+                            <i class="tim-icons icon-simple-delete"> </i> Remove From Favourites
+                        </button>
+                    </a> -->
+                    <a [routerLink]="['/blogs/' + blog._id]">
+                        <button class="btn btn-simple btn-info">
+                            <i class="tim-icons icon-pencil"> </i> Add Comments
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

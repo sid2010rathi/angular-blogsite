@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap/css/cover.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+    body.text-center
+      .cover-container.d-flex.w-100.h-100.p-3.mx-auto.flex-column
+        header.masthead.mb-auto
+          .inner
+            h3
+              a.masthead-brand(href='/') Blogs
+            nav.nav.nav-masthead.justify-content-center
+              a.nav-link.active(href='/') Home
+              a.nav-link(href='/author_list') Blogs
+        main.inner.cover(role='main')
+          .container
+            .row
+              .col-md-12
+                block content
+          hr
+        footer.mastfoot.mt-auto
+          .inner
+            p © Blog 2020
+
+
+script(src='/javascripts/jquery/jquery-1.11.1.min.js')
+script(src='/bootstrap/js/bootstrap.min.js')

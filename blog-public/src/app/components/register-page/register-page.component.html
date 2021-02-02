@@ -1,0 +1,77 @@
+<app-nav></app-nav>
+<div class="wrapper">
+    <div class="page-header">
+        <div class="page-header-image"></div>
+        <div class="content">
+            <div class="container">
+                <div class="row" style="justify-content: center;align-content: center;">
+                    <div class="col-lg-5 col-md-6 offset-lg-0 offset-md-3">
+                        <div class="square square-7" id="square7"
+                            style="transform: perspective(500px) rotateY(8.03deg) rotateX(-5.41667deg);"></div>
+                        <div class="square square-8" id="square8"
+                            style="transform: perspective(500px) rotateY(8.03deg) rotateX(-5.41667deg);"></div>
+                        <div class="card card-register">
+                            <div class="card-header"><img alt="Card image" class="card-img"
+                                    src="assets/img/square1-red.png">
+                                <h4 class="card-title">Register</h4>
+                            </div>
+                            <div class="card-body">
+                                <form class="form ng-untouched ng-pristine ng-valid" novalidate=""
+                                    (ngSubmit)="onRegister()">
+                                    <div *ngIf="formError" class="alert alert-danger" role="alert">
+                                        {{ formError }}
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="tim-icons icon-single-02"></i></div>
+                                        </div><input autocomplete="off" [(ngModel)]="newUser.name" name="name"
+                                            class="form-control" placeholder="Full Name" type="text">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="tim-icons icon-email-85"></i></div>
+                                        </div><input autocomplete="off" [(ngModel)]="newUser.email" name="email"
+                                            class="form-control" placeholder="Email" type="email">
+                                    </div>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-text"><i class="tim-icons icon-lock-circle"></i>
+                                            </div>
+                                        </div><input autocomplete="off" [(ngModel)]="newUser.password" name="password"
+                                            class="form-control" placeholder="Password" type="password">
+                                    </div>
+                                    <div class="form-check text-left">
+                                        <label class="form-check-label">
+                                            <input class="form-check-input" type="checkbox"><span
+                                                class="form-check-sign"></span> I agree to the <a
+                                                href="javascript:void(0)"> terms and conditions </a> .
+                                        </label>
+                                    </div>
+                                    <button class="btn btn-danger btn-round btn-lg" type="submit">Register</button>
+                                </form>
+                            </div>
+                            <div class="card-footer"
+                                style="display: flex; justify-content: center;align-content: center;">
+                                <p>Already Have Account? </p>
+                                <a routerLink="/login"> Login Here </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="register-bg"></div>
+                <div class="square square-1" id="square1"
+                    style="transform: perspective(500px) rotateY(20.075deg) rotateX(-13.5417deg);"></div>
+                <div class="square square-2" id="square2"
+                    style="transform: perspective(500px) rotateY(20.075deg) rotateX(-13.5417deg);"></div>
+                <div class="square square-3" id="square3"
+                    style="transform: perspective(500px) rotateY(20.075deg) rotateX(-13.5417deg);"></div>
+                <div class="square square-4" id="square4"
+                    style="transform: perspective(500px) rotateY(20.075deg) rotateX(-13.5417deg);"></div>
+                <div class="square square-5" id="square5"
+                    style="transform: perspective(500px) rotateY(20.075deg) rotateX(-13.5417deg);"></div>
+                <div class="square square-6" id="square6"
+                    style="transform: perspective(500px) rotateY(20.075deg) rotateX(-13.5417deg);"></div>
+            </div>
+        </div>
+    </div>
+</div>

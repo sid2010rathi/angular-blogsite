@@ -1,0 +1,60 @@
+<div class="section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <h1 class="text-center">Your favourite Blogs</h1>
+            </div>
+        </div>
+        <div *ngFor="let blog of blogs" class="row justify-content-between section section-examples">
+            <div class="col-md-6">
+                <div class="row justify-content-between align-items-center">
+                    <carousel [showIndicators]="true">
+                        <slide *ngFor="let blogImage of blog.images">
+                            <a routerLink="/blogs/{{blog._id}}">
+
+                                <img alt="{{ blog.name }}" class="d-block" src="{{ blogImage }}" />
+                            </a>
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ blog.name }}</h5>
+                            </div>
+                        </slide>
+                    </carousel>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h1 class="profile-title text-left"><a routerLink="/blogs/{{blog._id}}">{{ blog.name }}</a></h1>
+                <p class="profile-description text-left">
+                    {{blog.description}}
+                </p>
+                <footer class="blockquote-footer">Author: <cite title="Source Title">{{ blog.author }}</cite></footer>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="section">
+    <div class="container">
+        <div *ngFor="let blog of fav" class="row justify-content-between section section-examples">
+            <h1> testing favs in first FOR</h1>
+            <h2>{{blog.blogid}}</h2> -->
+
+<!-- <div *ngFor="let list of blog.blogid" class="col-md-6"> -->
+<!-- <div class="col-md-5"> -->
+<!-- <h2>{{list.name}}</h2>
+                    <h1> testing favs in 2nd For</h1> -->
+<!-- </div> -->
+<!-- </div> -->
+
+<!-- <div class="col-md-5">
+                <h1 class="profile-title text-left">{{ blog._id }}</h1>
+                <p class="profile-description text-left">
+                    {{blog.userid}}
+                </p>
+                <footer class="blockquote-footer">Author: <cite title="Source Title">{{ blog.blogid }}</cite></footer>
+                
+            </div> -->
+<!-- </div>
+    </div>
+</div> -->

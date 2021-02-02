@@ -1,0 +1,36 @@
+
+<div class="section"> 
+    <div class="container">
+
+     <div class="section">
+<form (ngSubmit)="createBlog(newBlog); onReviewSubmit()" >
+
+    <div class="form-group">
+       <label for="name">Blog Topic Name</label>
+       <input type="text" class="form-control" id="name" placeholder="Ex. Javascript" name="name" [(ngModel)]="newBlog.name">
+    </div>
+    <br>
+    <div class="form-group">
+       <label for="author">Author</label>
+       <input  type="text" class="form-control" id="author" placeholder="Ex. Sai Ganesh" name="author" [(ngModel)]="newBlog.author">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="5" placeholder="Blog Description" name ="description"[(ngModel)]="newBlog.description"></textarea>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="images">Image URL</label>
+        <input class="form-control" type="text" class="form-control" id="images" placeholder="Image Url" name="images" [(ngModel)]="newBlog.images">
+     </div>
+  
+    <div *ngIf="formError; else notshow" class="alert alert-info" role="alert">{{ formError }}</div>
+    <ng-template #notshow><div class="alert alert-info" role="alert">Enter all details</div></ng-template>
+<div class="text-center">
+    <button type="submit" class="btn btn-primary">Submit</button>
+   </div>
+ </form>
+     </div>
+    </div>
+</div>

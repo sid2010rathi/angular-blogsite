@@ -1,0 +1,39 @@
+
+<div class="section"> 
+    <div class="container">
+
+     <div class="section">
+<form (ngSubmit)="updateBlog(blog); onReviewSubmit()" >
+
+    <div class="form-group">
+       <label for="name">Blog Topic Name</label>
+       <input type="text" class="form-control" id="name" placeholder="{{blog.name}}" name="name" [(ngModel)]="blog.name">
+    </div>
+    <br>
+    <div class="form-group">
+       <label for="author">Author</label>
+       <input  type="text" class="form-control" id="author" placeholder="{{blog.author}}" name="author" [(ngModel)]="blog.author">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="5" placeholder="{{blog.description}}" name ="description"[(ngModel)]="blog.description"></textarea>
+      </div>
+      <br>
+      <div class="form-group">
+        <label for="images">Image URL</label>
+        <input class="form-control" type="text" class="form-control" id="images" placeholder="{{blog.images}}" name="images" [(ngModel)]="blog.images">
+     </div>
+     
+  
+    <div *ngIf="formError; else notshow" class="alert alert-info" role="alert">{{ formError }}</div>
+    <ng-template #notshow><div class="alert alert-info" role="alert">Enter all details</div></ng-template>
+    <div class="text-center">
+   
+    <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+ </form>
+ 
+     </div>
+    </div>
+</div>

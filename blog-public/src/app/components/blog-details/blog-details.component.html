@@ -1,0 +1,114 @@
+<div class="section">
+    <div class="container">
+
+        <br>
+        <br>
+        <h2>{{ newBlog.name}}</h2>
+        <div class="row ">
+
+            <div class="col-lg-8">
+                <!-- <div class="row justify-content-between align-items-center">
+                    <h1>Selected Blog</h1>
+                    <div class="format">
+                        <p [ngStyle]="{'color':'green'}">Name : </p>
+                        <p [ngStyle]="{'color':'blue'}">Images : {{newBlog.images}}</p>
+                        <p [ngStyle]="{'color':'red'}">Description : {{newBlog.description}}</p>
+                        <p [ngStyle]="{'color':'green'}">Author : {{newMovie.author}}</p>
+                    </div> 
+                </div> -->
+
+                <div class="blog-post shadow">
+                    <carousel [showIndicators]="true">
+                        <slide *ngFor="let blogImage of newBlog.images">
+                            <!-- <a [routerLink]="['/blogs', blog._id]"></a> -->
+                            <img class="img-fluid" alt="{{ newBlog.name }}" class="d-block" src="{{ blogImage }}" />
+
+                            <!-- <div class="carousel-caption d-none d-md-block">
+                                <h5>{{ blog.name }}</h5>
+                            </div> -->
+                        </slide>
+                    </carousel>
+                    <div class="blog-post-content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <br>
+                                <br>
+                                <h4>{{ newBlog.author }}</h4>
+                            </div>
+                            <!-- <div class="col-lg-6">
+
+                                <ng-template [ngIf]="newBlog.favourites"> <div  class="alert alert-danger" role="alert">{{newBlog.name}} is your favourites</div>  </ng-template>
+                            </div> -->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+
+                <p>{{ newBlog.description }}</p>
+                <div class="btn-wrapper pt-3">
+                    <!--   <a [routerLink]="['/blogs/' + newBlog._id + '/favourites']"> -->
+                    <!-- <a [routerLink]="['/books/' + newBook._id + '/review/new']" class="btn btn-primary">Add Review</a> -->
+                    <button class="btn btn-simple btn-danger mr-1" (click)="updateBlog(newBlog._id)">
+                        <i class="tim-icons icon-pencil"> </i> Update Blog
+                    </button>
+
+                    <!-- </a> -->
+                    <!-- <a [routerLink]="['/blogs/' + newBlog._id + '/comments/new']"> -->
+                    <button class="btn btn-simple btn-info" (click)="deleteBlog(newBlog._id)">
+                        <i class="tim-icons icon-trash-simple"> </i> Delete Blog
+                    </button>
+                    <!-- </a> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <br>
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <h5><small class="pull-right"></small> Comments </h5>
+                <div *ngFor="let comment of newBlog.comments">
+                    <div class="comments-list">
+                        <br>
+                        <div class="media">
+                            <p class="pull-right"><small></small></p>
+                            <a class="media-left" href="#">
+                                <!-- <img src="http://lorempixel.com/40/40/people/1/"> -->
+                            </a>
+                            <div class="media-body card card-stats" style="padding: 10px;">
+                                <p>{{comment.description}}</p>
+                                <p class="media-heading user_name text-muted"> <i
+                                        class="tim-icons icon-single-02"></i><small>{{comment.author}} commented this at
+                                        {{comment.date}} </small> </p>
+                                <p><small><i class="tim-icons icon-heart-2"></i> Like &nbsp; &nbsp; <i
+                                            class="tim-icons icon-attach-87"></i> Share</small></p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //   <form (ngSubmit)="postComment(newBlog)"> -->
+            <div>
+
+                <div class="form-group" *ngFor="let x of newBlog.comments  index as i; first as isLast">
+                    <span *ngIf="isLast"> <label for="comdescription">Post Commment</label>
+                        <textarea class="form-control" id="newComment" rows="2" placeholder="Comment here"
+                            [(ngModel)]="newComment" name="newComment"></textarea> </span>
+                </div>
+                <br>
+                <div class="btn-wrapper pt-3">
+                    <button (click)="postComment()" class="btn btn-simple btn-info">
+                        <i class="tim-icons icon-pencil"> </i> Post A Comment
+                    </button>
+                </div>
+                <!-- </form> -->
+            </div>
+        </div>
+    </div>
